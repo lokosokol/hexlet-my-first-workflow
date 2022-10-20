@@ -1,12 +1,19 @@
-name: hello-world
-# on – определяет события, которые запускают воркфлоу
-on: push
+name: Hello world workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: Check out repository code
         uses: actions/checkout@v3
 
       - name: say-hello
-      run: make say-hello
+        run: make say-hello
